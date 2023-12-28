@@ -1,12 +1,13 @@
 //TCP server
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 
-#pragma comment(lib,"ws2_32.lib")
+#pragma comment(lib,"ws2_32.lib") 
 #include <WinSock2.h>
 #include <iostream>
 #include <string>
+#include <string>
 #include <iostream>
-#include "server.h"
+#include "server.h" 
 using namespace std;
 
 void addr_init(SOCKADDR_IN &addr)
@@ -45,10 +46,10 @@ bool checkSent(int bytesSent, SOCKET& Connection)
 	if (bytesSent == SOCKET_ERROR)
 	{
 		cerr << "Error sending data: " << WSAGetLastError() << endl;
-		return SERVER_SENT_FAILED;
+		return SENT_ARRAY_FAILED;
 	}
 	else
 	{
-		return SERVER_SENT_SUCCESS;
+		return SENT_ARRAY_SUCCESS;
 	}
 }

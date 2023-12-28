@@ -1,10 +1,10 @@
 #pragma once
 
 #define MAX_THREADS 128
-#define SUBDATANUM 100000
+#define SUBDATANUM 1000000
 #define DATANUM (SUBDATANUM * MAX_THREADS)  
 #define SORT_DATANUM DATANUM/2 // Half of the original data
-#define NUM_THREADS 64
+#define NUM_THREADS 64 
 #define MAX_LEVEL 6
 
 #define GET_SEC(start, end) ((end.tv_sec-start.tv_sec) + (end.tv_usec-start.tv_usec)*1e-6)

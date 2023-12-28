@@ -34,7 +34,7 @@ int main()
 	QueryPerformanceCounter(&start);
 	while (true) {
 		int bytesRecv = recv(Connection, recvArrBuffer, SEND_RECV_BUFFER_SIZE, NULL);
-		if (bytesRecv == 0)
+		if (bytesRecv != SEND_RECV_BUFFER_SIZE)
 		{
 			break;
 		}
@@ -65,8 +65,49 @@ int main()
 		cout << "***********************************************" << endl;
 	}
 
+	// Sorting Array
 	cout << "Client: start to sort" << endl;
-	test_parallel(arr_recv, SORT_DATANUM);
+	test_parallel(arr_recv, SORT_DATANUM); 
+
+	//Send Array back
+	const char start_send_back = CLIENT_START_SENDING;
+	cout << "Start Sending Array Back" << endl;
+	send(Connection, &start_send_back, 1, NULL);
+
+	int remainBytes = SORT_DATANUM * sizeof(DTYPE);
+	while (remainBytes > 0)
+	{
+		int BytesToSend = min(SEND_RECV_BUFFER_SIZE, remainBytes);
+		const char* dataToSend = reinterpret_cast<const char*>(arr_recv.data()) +
+			(SORT_DATANUM * sizeof(DTYPE) - remainBytes); // 指向需要发送的数据的指针
+
+		int bytesSent = send(Connection, dataToSend, BytesToSend, 0);
+		if (checkSent(bytesSent, Connection) == SENT_ARRAY_SUCCESS)
+		{
+			remainBytes -= bytesSent;
+			continue;
+		}
+		else
+		{
+			closesocket(Connection);
+			WSACleanup();
+			return -1;
+		}
+	}
+
+	const char end_send = CLIENT_END_SENDING;
+	cout << "End Sending Array" << endl;
+	send(Connection, &end_send, 1, NULL);
+
+	QueryPerformanceCounter(&end);
+
+	arr_recv.erase(arr_recv.begin(), arr_recv.end());
+
+	cout << "Remaining Array Size is " << arr_recv.size() << endl;
+	cout << "All data sent successfully." << endl;
+	cout << "***********************************************" << endl;
+
+
 
 	//cleanup
 	closesocket(Connection);

@@ -4,7 +4,7 @@
 #pragma comment(lib,"ws2_32.lib")
 #include <WinSock2.h>
 #include <iostream>
-#include <string>
+#include <string> 
 #include "client.h"
 using namespace std;
 
@@ -36,4 +36,17 @@ SOCKET client_init()
 		return NULL;
 	}
 	return Connection;
+}
+
+bool checkSent(int bytesSent, SOCKET& Connection)
+{
+	if (bytesSent == SOCKET_ERROR)
+	{
+		cerr << "Error sending data: " << WSAGetLastError() << endl;
+		return SENT_ARRAY_FAILED;
+	}
+	else
+	{
+		return SENT_ARRAY_SUCCESS;
+	}
 }
