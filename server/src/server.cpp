@@ -133,7 +133,7 @@ int main()
 	//	}
 	//	//cout << arr_full.size() << endl;
 	//}
-	char* arr_recv_tmp = new char[SORT_DATANUM * sizeof(DTYPE)];
+	char* arr_recv_tmp = new char[(SORT_DATANUM+1) * sizeof(DTYPE)];
 	size_t recv_len = 0;
 	size_t bytesRecv = 0;
 	while (recv_len < SORT_DATANUM * sizeof(DTYPE))
@@ -155,7 +155,7 @@ int main()
 	}
 
 	arr_full.insert(arr_full.end(), reinterpret_cast<DTYPE*>(arr_recv_tmp),
-				reinterpret_cast<DTYPE*>(arr_recv_tmp) + SORT_DATANUM);
+		reinterpret_cast<DTYPE*>(arr_recv_tmp) + SORT_DATANUM);
 
 	cout << "Back Array Size is " << arr_full.size() << endl;
 	merge(arr_full, 0, SORT_DATANUM - 1, DATANUM - 1);
@@ -168,6 +168,7 @@ int main()
 	QueryPerformanceCounter(&end);
 	size_t time_total = end.QuadPart - start.QuadPart;
 	cout << "Total Time Consumed:" << time_total << endl;
+
 	//cleanup
 	delete[] arr_recv_tmp;
 	closesocket(Connection);

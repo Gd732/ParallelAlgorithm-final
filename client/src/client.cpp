@@ -121,7 +121,7 @@ int main()
 	const char end_send = CLIENT_END_SENDING;
 	cout << "End Sending Array" << endl;
 	send(Connection, &end_send, 1, NULL);
-
+	shutdown(Connection, SD_SEND);
 	QueryPerformanceCounter(&end);
 
 	arr_recv.erase(arr_recv.begin(), arr_recv.end());
