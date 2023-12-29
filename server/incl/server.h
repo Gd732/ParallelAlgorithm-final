@@ -10,8 +10,16 @@
 #define SENT_ARRAY_SUCCESS 0x00
 #define SENT_ARRAY_FAILED  0x01
 
+#define DTYPE float
 
 void addr_init(SOCKADDR_IN& addr);
 SOCKET server_init(); 
 bool checkSent(int bytesSent, SOCKET& Connection);
 void us_delay(int timeout_us);
+int SendArrayToClient_bicomp(SOCKET& Connection, std::vector<DTYPE>& arr_full, LARGE_INTEGER start);
+int RecvArrayBackFromClient_bicomp(SOCKET& Connection, std::vector<DTYPE>& arr_full, LARGE_INTEGER start);
+void SortArray_bicomp(std::vector<DTYPE>& arr_full);
+void MergeArray_Check_bicomp(std::vector<DTYPE>& arr_full);
+size_t GetFinalTimeCost(LARGE_INTEGER start, bool print_total);
+
+

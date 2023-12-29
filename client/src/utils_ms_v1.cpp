@@ -18,10 +18,13 @@ float GetRandomFloat()
 
 void vector_init(vector<DTYPE>& arr, size_t size)
 {
+    cout << "Initiating the Array, Please wait." << endl;
     for (size_t i = 0; i < size; ++i)
     {
         arr[i] = GetRandomFloat();
     }
+    cout << "Initiation Finished." << endl;
+    cout << "***********************************************" << endl;
 }
 
 bool checkSorted(vector<DTYPE>& arr, size_t size) 

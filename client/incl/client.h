@@ -11,7 +11,12 @@
 #define SENT_ARRAY_SUCCESS 0x00
 #define SENT_ARRAY_FAILED  0x01
 
+#define DTYPE float
+
 void addr_init(SOCKADDR_IN& addr);
 SOCKET client_init();
 bool checkSent(int bytesSent, SOCKET& Connection);
+std::vector<DTYPE> RecvArrayFromServer_bicomp(SOCKET& Connection, LARGE_INTEGER start);
+int SendArrayBackToServer_bicomp(SOCKET& Connection, std::vector<DTYPE>& arr_recv);
+void CheckRemainArray_bicomp(std::vector<DTYPE>& arr_recv);
 
