@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <string>
+#include <chrono>
 #include <iostream>
 #include "server.h" 
 using namespace std;
@@ -37,7 +38,6 @@ SOCKET server_init()
 
 	SOCKET newConnection; //业务员  build a new socket do new connection.the sListen is just listenning not used to exchange data
 	newConnection = accept(sListen, (SOCKADDR*)&addr, &addrlen); //newConnection is used to exchange data with client
-
 	return newConnection;
 }
 
@@ -51,5 +51,19 @@ bool checkSent(int bytesSent, SOCKET& Connection)
 	else
 	{
 		return SENT_ARRAY_SUCCESS;
+	}
+}
+
+void us_delay(int timeout_us)
+{
+	auto start = chrono::system_clock::now();
+	while (true)
+	{
+		auto duration =
+			chrono::duration_cast<chrono::microseconds>(chrono::system_clock::now() - start).count();
+		if (duration > timeout_us)
+		{
+			break;
+		}
 	}
 }

@@ -14,3 +14,4 @@
 void addr_init(SOCKADDR_IN& addr);
 SOCKET server_init(); 
 bool checkSent(int bytesSent, SOCKET& Connection);
+void us_delay(int timeout_us);

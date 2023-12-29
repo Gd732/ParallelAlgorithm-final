@@ -17,9 +17,9 @@ using namespace std;
 int main()
 {
 	SOCKET Connection = client_init();
-	vector<DTYPE> arr_recv;
+	//vector<DTYPE> arr_recv;
 	char recvArrBuffer[SEND_RECV_BUFFER_SIZE];
-
+	char* arr_recv_tmp = new char[SORT_DATANUM * sizeof(DTYPE)];
 	LARGE_INTEGER start, end;
 	char* checkbuff = new char[1];
 	*checkbuff = '\0';
@@ -32,9 +32,13 @@ int main()
 	delete[] checkbuff;
 
 	QueryPerformanceCounter(&start);
-	while (true) {
+	size_t recv_len = 0;
+	while (recv_len < SORT_DATANUM * sizeof(DTYPE)) 
+	{
+		memset(recvArrBuffer, 0, SEND_RECV_BUFFER_SIZE);
+
 		int bytesRecv = recv(Connection, recvArrBuffer, SEND_RECV_BUFFER_SIZE, NULL);
-		if (bytesRecv != SEND_RECV_BUFFER_SIZE)
+		if (recv_len == SORT_DATANUM*sizeof(DTYPE))
 		{
 			break;
 		}
@@ -43,14 +47,33 @@ int main()
 			std::cerr << "Error receiving data: " << WSAGetLastError() << std::endl;
 			break;
 		}
-
-		arr_recv.insert(arr_recv.end(), reinterpret_cast<DTYPE*>(recvArrBuffer),
-			reinterpret_cast<DTYPE*>(recvArrBuffer) + bytesRecv / sizeof(DTYPE));
+		memcpy(arr_recv_tmp + recv_len, recvArrBuffer, bytesRecv);
+		recv_len += bytesRecv;
 	}
+	//while (true) {
+	//	int bytesRecv = recv(Connection, recvArrBuffer, SEND_RECV_BUFFER_SIZE, NULL);
+	//	if (arr_recv.size() == SORT_DATANUM)
+	//	{
+	//		break;
+	//	}
+	//	else if (bytesRecv < 0)
+	//	{
+	//		std::cerr << "Error receiving data: " << WSAGetLastError() << std::endl;
+	//		break;
+	//	}
+	//	arr_recv.insert(arr_recv.end(), reinterpret_cast<DTYPE*>(recvArrBuffer),
+	//		reinterpret_cast<DTYPE*>(recvArrBuffer) + bytesRecv / sizeof(DTYPE));
+	//}
 
 	QueryPerformanceCounter(&end);
 	size_t time = end.QuadPart - start.QuadPart;
 	cout << "Receiving Time Consumed:" << time << endl;
+
+	// 将 char* 转换为 float*
+	float* floatData = reinterpret_cast<float*>(arr_recv_tmp);
+	// 创建一个存储 float 的 vector
+	vector<DTYPE> arr_recv(floatData, floatData + SORT_DATANUM);
+	delete[] arr_recv_tmp;
 
 	if (arr_recv.size() == SORT_DATANUM)
 	{

@@ -1,7 +1,7 @@
 #pragma once
 
 #define MAX_THREADS 128
-#define SUBDATANUM 1000000
+#define SUBDATANUM 100000
 #define DATANUM (SUBDATANUM * MAX_THREADS)  
 #define SORT_DATANUM DATANUM/2 
 

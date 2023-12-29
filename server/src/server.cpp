@@ -8,6 +8,8 @@
 #include <iostream>
 #include <Windows.h>
 #include <vector>
+#include <chrono>
+#include <thread>
 #include "server.h"
 #include "mergesort_v1.h"
 
@@ -17,6 +19,7 @@ using namespace std;
 int main()
 {
 	SOCKET Connection = server_init();
+	cout << "Hello" << endl;
 	LARGE_INTEGER start;
 
 	vector<DTYPE> arr_full(DATANUM);
@@ -35,15 +38,17 @@ int main()
 	const char start_send = SERVER_START_SENDING;
 	cout << "Start Sending Array" << endl;
 	send(Connection, &start_send, 1, NULL);
-		
 	int remainBytes = SORT_DATANUM * sizeof(DTYPE);
 	while (remainBytes > 0)
 	{
 		int BytesToSend = min(SEND_RECV_BUFFER_SIZE, remainBytes);
+
 		const char* dataToSend = reinterpret_cast<const char*>(arr_full.data()) +
 			(SORT_DATANUM * sizeof(DTYPE) - remainBytes); // 指向需要发送的数据的指针
 
 		int bytesSent = send(Connection, dataToSend, BytesToSend, 0);
+		//cout << bytesSent << endl;
+		//us_delay(100);
 		if (checkSent(bytesSent, Connection) == SENT_ARRAY_SUCCESS)
 		{
 			remainBytes -= bytesSent;
@@ -51,11 +56,38 @@ int main()
 		}
 		else
 		{
+			cout << "Sent failed" << endl;
 			closesocket(Connection);
 			WSACleanup();
 			return -1;
 		}
 	}
+	shutdown(Connection, SD_SEND);
+
+	//int remainBytes = SORT_DATANUM * sizeof(DTYPE);
+	//while (remainBytes > 0)
+	//{
+	//	int BytesToSend = min(SEND_RECV_BUFFER_SIZE, remainBytes);
+
+	//	const char* dataToSend = reinterpret_cast<const char*>(arr_full.data()) +
+	//		(SORT_DATANUM * sizeof(DTYPE) - remainBytes); // 指向需要发送的数据的指针
+
+	//	int bytesSent = send(Connection, dataToSend, BytesToSend, 0);
+	//	//cout << bytesSent << endl;
+	//	//us_delay(100);
+	//	if (checkSent(bytesSent, Connection) == SENT_ARRAY_SUCCESS)
+	//	{
+	//		remainBytes -= bytesSent;
+	//		continue;
+	//	}
+	//	else
+	//	{
+	//		cout << "Sent failed" << endl;
+	//		closesocket(Connection);
+	//		WSACleanup();
+	//		return -1;
+	//	}
+	//}
 	
 	const char end_send = SERVER_END_SENDING;
 	cout << "End Sending Array" << endl;
@@ -90,10 +122,26 @@ int main()
 	LARGE_INTEGER mark_server_recv_back;
 	QueryPerformanceCounter(&mark_server_recv_back);
 	size_t time_server_recv = mark_server_recv_back.QuadPart - start.QuadPart;
+	//while (true) {
+	//	int bytesRecv = recv(Connection, recvArrBuffer, SEND_RECV_BUFFER_SIZE, NULL);
+	//	arr_full.insert(arr_full.end(), reinterpret_cast<DTYPE*>(recvArrBuffer),
+	//		reinterpret_cast<DTYPE*>(recvArrBuffer) + bytesRecv / sizeof(DTYPE));
 
-	while (true) {
+	//	if (arr_full.size() == DATANUM || bytesRecv == 0)
+	//	{
+	//		break;
+	//	}
+	//	//cout << arr_full.size() << endl;
+	//}
+	char* arr_recv_tmp = new char[SORT_DATANUM * sizeof(DTYPE)];
+	size_t recv_len = 0;
+	size_t bytesRecv = 0;
+	while (recv_len < SORT_DATANUM * sizeof(DTYPE))
+	{
+		memset(recvArrBuffer, 0, SEND_RECV_BUFFER_SIZE);
+
 		int bytesRecv = recv(Connection, recvArrBuffer, SEND_RECV_BUFFER_SIZE, NULL);
-		if (bytesRecv != SEND_RECV_BUFFER_SIZE)
+		if (recv_len == SORT_DATANUM * sizeof(DTYPE))
 		{
 			break;
 		}
@@ -102,11 +150,12 @@ int main()
 			std::cerr << "Error receiving data: " << WSAGetLastError() << std::endl;
 			break;
 		}
-
-		arr_full.insert(arr_full.end(), reinterpret_cast<DTYPE*>(recvArrBuffer),
-			reinterpret_cast<DTYPE*>(recvArrBuffer) + bytesRecv / sizeof(DTYPE));
+		memcpy(arr_recv_tmp + recv_len, recvArrBuffer, bytesRecv);
+		recv_len += bytesRecv;
 	}
 
+	arr_full.insert(arr_full.end(), reinterpret_cast<DTYPE*>(arr_recv_tmp),
+				reinterpret_cast<DTYPE*>(arr_recv_tmp) + SORT_DATANUM);
 
 	cout << "Back Array Size is " << arr_full.size() << endl;
 	merge(arr_full, 0, SORT_DATANUM - 1, DATANUM - 1);
@@ -114,24 +163,13 @@ int main()
 	cout << (is_parallel_sorted ? "Array is sorted correctly after bi-computer parallel sorting"
 		: "Array is not sorted correctly after bi-computer parallel sorting") << endl;
 
-	//if (arr_full.size() == SORT_DATANUM)
-	//{
-	//	cout << "Received Array Size is " << arr_full.size() << endl;
-	//	cout << "All data received successfully." << endl;
-	//	cout << "***********************************************" << endl;
-	//}
-	//else
-	//{
-	//	cout << "Received Array Size is" << arr_recv.size() << endl;
-	//	cerr << "Data received unsuccessfully." << endl;
-	//	cout << "***********************************************" << endl;
-	//}
 	cout << "***********************************************" << endl;
 	LARGE_INTEGER end;
 	QueryPerformanceCounter(&end);
 	size_t time_total = end.QuadPart - start.QuadPart;
 	cout << "Total Time Consumed:" << time_total << endl;
 	//cleanup
+	delete[] arr_recv_tmp;
 	closesocket(Connection);
 	WSACleanup(); 
 	return 0;
