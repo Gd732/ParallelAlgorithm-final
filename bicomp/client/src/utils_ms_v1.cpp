@@ -97,7 +97,6 @@ void parallel_merge_sort(vector<DTYPE>& arr, /*vector<DTYPE>& tmp,*/ size_t low,
     {
 #pragma omp single nowait
         {
-
             size_t mid = (low + high) / 2;
 #pragma omp task if (level <= MAX_LEVEL)
             {
@@ -132,7 +131,7 @@ size_t test_non_parallel(vector<DTYPE>&arr, /*vector<DTYPE>&tmp,*/ size_t size)
     return time;
 }
 
-size_t test_parallel(vector<DTYPE>& arr, /*vector<DTYPE>& tmp,*/ size_t size)
+size_t test_parallel(vector<DTYPE>& arr, size_t size)
 {
     LARGE_INTEGER start, end;
     QueryPerformanceCounter(&start);//start  

@@ -64,8 +64,6 @@ std::vector<DTYPE> RecvArrayFromServer_bicomp(SOCKET& Connection, LARGE_INTEGER 
 
 	delete[] checkbuff;
 
-	
-
 	char recvArrBuffer[SEND_RECV_BUFFER_SIZE];
 	char* arr_recv_tmp = new char[SORT_DATANUM * sizeof(DTYPE)];
 	size_t recv_len = 0;
@@ -135,6 +133,8 @@ int SendArrayBackToServer_bicomp(SOCKET& Connection, std::vector<DTYPE>& arr_rec
 	arr_recv.erase(arr_recv.begin(), arr_recv.end());
 	return 0;
 }
+
+
 
 void CheckRemainArray_bicomp(std::vector<DTYPE>& arr_recv)
 {

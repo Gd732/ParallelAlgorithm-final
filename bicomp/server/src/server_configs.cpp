@@ -86,8 +86,10 @@ int SendArrayToClient_bicomp(SOCKET& Connection, vector<DTYPE>& arr_full, LARGE_
 	{
 		int BytesToSend = min(SEND_RECV_BUFFER_SIZE, remainBytes);
 
-		const char* dataToSend = reinterpret_cast<const char*>(arr_full.data()) +
-			(SORT_DATANUM * sizeof(DTYPE) - remainBytes); // 指向需要发送的数据的指针
+		const char* dataToSend =
+			reinterpret_cast<const char*>(arr_full.data()) + SORT_DATANUM * sizeof(DTYPE) + //初始指针位置
+			(SORT_DATANUM * sizeof(DTYPE) - remainBytes); //随发送而移动
+			
 
 		int bytesSent = send(Connection, dataToSend, BytesToSend, 0);
 

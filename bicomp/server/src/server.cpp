@@ -9,6 +9,7 @@
 #include <Windows.h>
 #include <vector>
 #include <chrono>
+#include "max_sum.h"
 #include "server.h"
 #include "mergesort_v1.h"
 
@@ -29,6 +30,8 @@ int main()
 
 	// sort the remaining array
 	SortArray_bicomp(arr_full);
+	DTYPE server_max = arrayMaxParallel(arr_full, SORT_DATANUM);
+	DTYPE server_sum = arraySumParallel(arr_full, SORT_DATANUM);
 
 	// start to receive back
 	RecvArrayBackFromClient_bicomp(Connection, arr_full, start);

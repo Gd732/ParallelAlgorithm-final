@@ -9,6 +9,7 @@
 #include <windows.h>
 #include <vector>
 #include <time.h>
+#include "max_sum.h"
 #include "client.h"
 #include "mergesort_v1.h"
 
@@ -24,10 +25,11 @@ int main()
 
 	// receive array from server
 	vector<DTYPE> arr_recv = RecvArrayFromServer_bicomp(Connection, start);
-	
 	// sorting array
 	cout << "Client: start to sort" << endl;
 	test_parallel(arr_recv, SORT_DATANUM); 
+	DTYPE client_max = arrayMaxParallel(arr_recv, SORT_DATANUM);
+	DTYPE client_sum = arraySumParallel(arr_recv, SORT_DATANUM);
 
 	// send array back
 	SendArrayBackToServer_bicomp(Connection, arr_recv);
