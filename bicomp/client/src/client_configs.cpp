@@ -64,6 +64,8 @@ std::vector<DTYPE> RecvArrayFromServer_bicomp(SOCKET& Connection, LARGE_INTEGER 
 
 	delete[] checkbuff;
 
+	
+
 	char recvArrBuffer[SEND_RECV_BUFFER_SIZE];
 	char* arr_recv_tmp = new char[SORT_DATANUM * sizeof(DTYPE)];
 	size_t recv_len = 0;
@@ -134,8 +136,44 @@ int SendArrayBackToServer_bicomp(SOCKET& Connection, std::vector<DTYPE>& arr_rec
 	return 0;
 }
 
+int SendArrayBackToServer_bicomp(SOCKET& Connection, std::vector<DTYPE>& arr_recv, DTYPE client_max, DTYPE client_sum)
+{
+	const char start_send_back = CLIENT_START_SENDING;
+	cout << "Start Sending Array Back" << endl;
+	send(Connection, &start_send_back, 1, NULL);
 
+	arr_recv.push_back(client_sum);
+	arr_recv.push_back(client_max);
 
+	int remainBytes = (SORT_DATANUM + 2) * sizeof(DTYPE);
+	while (remainBytes > 0)
+	{
+		int BytesToSend = min(SEND_RECV_BUFFER_SIZE, remainBytes);
+		const char* dataToSend = reinterpret_cast<const char*>(arr_recv.data()) +
+			((SORT_DATANUM + 2) * sizeof(DTYPE) - remainBytes); // 指向需要发送的数据的指针
+
+		int bytesSent = send(Connection, dataToSend, BytesToSend, 0);
+		if (checkSent(bytesSent, Connection) == SENT_ARRAY_SUCCESS)
+		{
+			remainBytes -= bytesSent;
+			continue;
+		}
+		else
+		{
+			closesocket(Connection);
+			WSACleanup();
+			return -1;
+		}
+	}
+
+	//const char end_send = CLIENT_END_SENDING;
+	//cout << "End Sending Array" << endl;
+	//send(Connection, &end_send, 1, NULL);
+	shutdown(Connection, SD_SEND);
+
+	arr_recv.erase(arr_recv.begin(), arr_recv.end());
+	return 0;
+}
 void CheckRemainArray_bicomp(std::vector<DTYPE>& arr_recv)
 {
 	cout << "Remaining Array Size is " << arr_recv.size() << endl;

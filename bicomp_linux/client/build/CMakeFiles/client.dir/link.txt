@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/client.dir/src/client.cpp.o CMakeFiles/client.dir/src/client_configs.cpp.o CMakeFiles/client.dir/src/utils_ms_v1.cpp.o  -o client 

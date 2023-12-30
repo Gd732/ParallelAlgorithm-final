@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../incl/mergesort_v1.h
+
+../incl/server.h
+
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server_configs.cpp
+netinet/in.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+iostream
+-
+string
+-
+vector
+-
+chrono
+-
+string.h
+-
+iostream
+-
+sys/time.h
+-
+server.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server.h
+mergesort_v1.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/mergesort_v1.h
+

@@ -86,10 +86,8 @@ int SendArrayToClient_bicomp(SOCKET& Connection, vector<DTYPE>& arr_full, LARGE_
 	{
 		int BytesToSend = min(SEND_RECV_BUFFER_SIZE, remainBytes);
 
-		const char* dataToSend =
-			reinterpret_cast<const char*>(arr_full.data()) + SORT_DATANUM * sizeof(DTYPE) + //初始指针位置
-			(SORT_DATANUM * sizeof(DTYPE) - remainBytes); //随发送而移动
-			
+		const char* dataToSend = reinterpret_cast<const char*>(arr_full.data()) +
+			(SORT_DATANUM * sizeof(DTYPE) - remainBytes); // 指向需要发送的数据的指针
 
 		int bytesSent = send(Connection, dataToSend, BytesToSend, 0);
 
@@ -121,6 +119,7 @@ int SendArrayToClient_bicomp(SOCKET& Connection, vector<DTYPE>& arr_full, LARGE_
 	cout << "All data sent successfully." << endl;
 	return 0;
 }
+
 
 int RecvArrayBackFromClient_bicomp(SOCKET& Connection, vector<DTYPE>& arr_full, LARGE_INTEGER start)
 {
@@ -166,6 +165,55 @@ int RecvArrayBackFromClient_bicomp(SOCKET& Connection, vector<DTYPE>& arr_full, 
 	return 0;
 }
 
+int RecvArrayBackFromClient_bicomp(SOCKET& Connection, vector<DTYPE>& arr_full, LARGE_INTEGER start, DTYPE& client_max, DTYPE& client_sum)
+{
+	char recvArrBuffer[SEND_RECV_BUFFER_SIZE];
+
+	char* checkbuff = new char[1];
+	*checkbuff = '\0';
+	recv(Connection, checkbuff, 1, NULL);
+	if (*checkbuff == SERVER_START_SENDING)
+	{
+		cout << "Start receiving array." << endl;
+	}
+	delete[] checkbuff;
+
+	LARGE_INTEGER mark_server_recv_back;
+	QueryPerformanceCounter(&mark_server_recv_back);
+	size_t time_server_recv = mark_server_recv_back.QuadPart - start.QuadPart;
+
+	char* arr_recv_tmp = new char[(SORT_DATANUM + 3) * sizeof(DTYPE)];
+	size_t recv_len = 0;
+	size_t bytesRecv = 0;
+	while (recv_len < (SORT_DATANUM + 2) * sizeof(DTYPE))
+	{
+		memset(recvArrBuffer, 0, SEND_RECV_BUFFER_SIZE);
+
+		int bytesRecv = recv(Connection, recvArrBuffer, SEND_RECV_BUFFER_SIZE, NULL);
+		if (recv_len == (SORT_DATANUM + 2) * sizeof(DTYPE))
+		{
+			break;
+		}
+		else if (bytesRecv < 0)
+		{
+			std::cerr << "Error receiving data: " << WSAGetLastError() << std::endl;
+			break;
+		}
+		memcpy(arr_recv_tmp + recv_len, recvArrBuffer, bytesRecv);
+		recv_len += bytesRecv;
+	}
+	arr_full.insert(arr_full.end(), reinterpret_cast<DTYPE*>(arr_recv_tmp),
+		reinterpret_cast<DTYPE*>(arr_recv_tmp) + (SORT_DATANUM + 2));
+	//cout << arr_full.size() << endl;
+	delete[] arr_recv_tmp;
+	client_max = arr_full.back();
+	arr_full.pop_back();
+	client_sum = arr_full.back();
+	arr_full.pop_back();
+
+
+	return 0;
+}
 void SortArray_bicomp(vector<DTYPE>& arr_full)
 {
 	cout << "***********************************************" << endl;

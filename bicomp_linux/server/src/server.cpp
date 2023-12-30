@@ -1,0 +1,50 @@
+//TCP server
+// #define _WINSOCK_DEPRECATED_NO_WARNINGS
+// #pragma comment(lib,"ws2_32.lib")
+// // #include <WinSock2.h>
+
+#include <netinet/in.h>
+#include <unistd.h>
+#include <iostream>
+#include <string>
+#include <iostream>
+// #include <Windows.h>
+#include <sys/time.h>
+#include <vector>
+// #include <chrono>
+#include "server.h"
+#include "mergesort_v1.h"
+
+using namespace std;
+
+int main()
+{
+	// init the server
+	int Connection = server_init();
+	vector<DTYPE> arr_full(DATANUM);
+	vector_init(arr_full, DATANUM);
+
+	// LARGE_INTEGER start;
+	// QueryPerformanceCounter(&start);
+	timeval start;
+	gettimeofday(&start, NULL);
+
+	// send half of the array to client
+	SendArrayToClient_bicomp(Connection, arr_full, start);
+
+	// sort the remaining array
+	SortArray_bicomp(arr_full);
+
+	// start to receive back
+	RecvArrayBackFromClient_bicomp(Connection, arr_full, start);
+
+	// merge the array
+	MergeArray_Check_bicomp(arr_full);
+
+	// get the final time cost
+	GetFinalTimeCost(start, true);
+
+	// cleanup
+	close(Connection);
+	return 0;
+}

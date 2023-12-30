@@ -1,8 +1,6 @@
 #pragma once
 
-//#define SOCKET_IPADDR "100.80.168.19"
-#define SOCKET_IPADDR "192.168.222.133"
-
+#define SOCKET_IPADDR "100.80.168.19"
 #define SOCKET_PORT 8888
 #define SEND_RECV_BUFFER_SIZE 1024
 #define SERVER_START_SENDING '^' 
@@ -20,5 +18,7 @@ SOCKET client_init();
 bool checkSent(int bytesSent, SOCKET& Connection);
 std::vector<DTYPE> RecvArrayFromServer_bicomp(SOCKET& Connection, LARGE_INTEGER start);
 int SendArrayBackToServer_bicomp(SOCKET& Connection, std::vector<DTYPE>& arr_recv);
+int SendArrayBackToServer_bicomp(SOCKET& Connection, std::vector<DTYPE>& arr_recv, DTYPE client_max, DTYPE client_sum);
+
 void CheckRemainArray_bicomp(std::vector<DTYPE>& arr_recv);
 

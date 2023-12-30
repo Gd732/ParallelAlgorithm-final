@@ -9,7 +9,6 @@
 #include <Windows.h>
 #include <vector>
 #include <chrono>
-#include "max_sum.h"
 #include "server.h"
 #include "mergesort_v1.h"
 
@@ -22,6 +21,8 @@ int main()
 	vector<DTYPE> arr_full(DATANUM);
 	vector_init(arr_full, DATANUM);
 
+	DTYPE client_max = 0, client_sum = 0;
+
 	LARGE_INTEGER start;
 	QueryPerformanceCounter(&start);
 
@@ -30,11 +31,11 @@ int main()
 
 	// sort the remaining array
 	SortArray_bicomp(arr_full);
-	DTYPE server_max = arrayMaxParallel(arr_full, SORT_DATANUM);
-	DTYPE server_sum = arraySumParallel(arr_full, SORT_DATANUM);
 
 	// start to receive back
-	RecvArrayBackFromClient_bicomp(Connection, arr_full, start);
+	RecvArrayBackFromClient_bicomp(Connection, arr_full, start, client_max, client_sum);
+	cout << "client max = " << client_max << endl;
+	cout << "client sum = " << client_sum << endl;
 
 	// merge the array
 	MergeArray_Check_bicomp(arr_full);
