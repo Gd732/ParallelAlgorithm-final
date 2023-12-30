@@ -1,2 +1,2 @@
 ## Course ParallelAlgorithm 
-### Final Assignment
+### Final Project
