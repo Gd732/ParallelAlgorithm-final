@@ -20,6 +20,8 @@ bool checkSent(int bytesSent, int& Connection);
 void us_delay(int timeout_us);
 int SendArrayToClient_bicomp(int& Connection, std::vector<DTYPE>& arr_full, timeval start);
 int RecvArrayBackFromClient_bicomp(int& Connection, std::vector<DTYPE>& arr_full, timeval start);
+int RecvArrayBackFromClient_bicomp(int& Connection, std::vector<DTYPE>& arr_full, timeval start, DTYPE& client_max, DTYPE& client_sum);
+
 void SortArray_bicomp(std::vector<DTYPE>& arr_full);
 void MergeArray_Check_bicomp(std::vector<DTYPE>& arr_full);
 double GetFinalTimeCost(timeval start, bool print_total);

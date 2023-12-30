@@ -23,7 +23,7 @@ int main()
 	int Connection = server_init();
 	vector<DTYPE> arr_full(DATANUM);
 	vector_init(arr_full, DATANUM);
-
+	DTYPE client_max = 0, client_sum = 0;
 	// LARGE_INTEGER start;
 	// QueryPerformanceCounter(&start);
 	timeval start;
@@ -36,8 +36,9 @@ int main()
 	SortArray_bicomp(arr_full);
 
 	// start to receive back
-	RecvArrayBackFromClient_bicomp(Connection, arr_full, start);
-
+	RecvArrayBackFromClient_bicomp(Connection, arr_full, start, client_max, client_sum);
+	cout << "client max = " << client_max << endl;
+	cout << "client sum = " << client_sum << endl;
 	// merge the array
 	MergeArray_Check_bicomp(arr_full);
 

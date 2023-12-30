@@ -4,9 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles/server.dir/src/server.cpp.o"
-  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server_configs.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles/server.dir/src/server_configs.cpp.o"
-  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/utils_ms_v1.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles/server.dir/src/utils_ms_v1.cpp.o"
+  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles/server.dir/src/server.cpp.o"
+  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server_configs.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles/server.dir/src/server_configs.cpp.o"
+  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/utils_max_sum.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles/server.dir/src/utils_max_sum.cpp.o"
+  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/utils_ms_v1.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles/server.dir/src/utils_ms_v1.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

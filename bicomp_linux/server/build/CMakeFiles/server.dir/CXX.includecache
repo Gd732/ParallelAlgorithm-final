@@ -10,7 +10,27 @@
 
 ../incl/server.h
 
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server_configs.cpp
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server.cpp
+netinet/in.h
+-
+unistd.h
+-
+iostream
+-
+string
+-
+iostream
+-
+sys/time.h
+-
+vector
+-
+server.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server.h
+mergesort_v1.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/mergesort_v1.h
+
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server_configs.cpp
 netinet/in.h
 -
 sys/socket.h
@@ -34,7 +54,7 @@ iostream
 sys/time.h
 -
 server.h
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server.h
 mergesort_v1.h
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/mergesort_v1.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/mergesort_v1.h
 

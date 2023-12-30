@@ -3,12 +3,15 @@
 
 CMakeFiles/client.dir/src/client.cpp.o
  ../incl/client.h
+ ../incl/max_sum.h
  ../incl/mergesort_v1.h
- /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client.cpp
+ /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client.cpp
 CMakeFiles/client.dir/src/client_configs.cpp.o
  ../incl/client.h
  ../incl/mergesort_v1.h
- /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client_configs.cpp
+ /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client_configs.cpp
+CMakeFiles/client.dir/src/utils_max_sum.cpp.o
+ /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_max_sum.cpp
 CMakeFiles/client.dir/src/utils_ms_v1.cpp.o
  ../incl/mergesort_v1.h
- /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/utils_ms_v1.cpp
+ /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_ms_v1.cpp

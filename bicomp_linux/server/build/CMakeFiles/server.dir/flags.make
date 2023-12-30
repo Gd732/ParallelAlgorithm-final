@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/./incl 
+CXX_INCLUDES = -I/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/./incl 
 

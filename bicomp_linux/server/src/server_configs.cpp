@@ -169,7 +169,55 @@ int RecvArrayBackFromClient_bicomp(int& Connection, vector<DTYPE>& arr_full, tim
 
 	return 0;
 }
+int RecvArrayBackFromClient_bicomp(int& Connection, vector<DTYPE>& arr_full, timeval start, DTYPE& client_max, DTYPE& client_sum)
+{
+	char recvArrBuffer[SEND_RECV_BUFFER_SIZE];
 
+	char* checkbuff = new char[1];
+	*checkbuff = '\0';
+	recv(Connection, checkbuff, 1, NULL);
+	if (*checkbuff == SERVER_START_SENDING)
+	{
+		cout << "Start receiving array." << endl;
+	}
+	delete[] checkbuff;
+
+	timeval end;
+	gettimeofday(&end, NULL);
+	double dura = TIME_DIFF(start, end);
+	cout << "Receiving Time Consumed:" << dura << endl;
+
+	char* arr_recv_tmp = new char[(SORT_DATANUM + 3) * sizeof(DTYPE)];
+	size_t recv_len = 0;
+	size_t bytesRecv = 0;
+	while (recv_len < (SORT_DATANUM + 2) * sizeof(DTYPE))
+	{
+		memset(recvArrBuffer, 0, SEND_RECV_BUFFER_SIZE);
+
+		int bytesRecv = recv(Connection, recvArrBuffer, SEND_RECV_BUFFER_SIZE, NULL);
+		if (recv_len == (SORT_DATANUM + 2) * sizeof(DTYPE))
+		{
+			break;
+		}
+		else if (bytesRecv < 0)
+		{
+			break;
+		}
+		memcpy(arr_recv_tmp + recv_len, recvArrBuffer, bytesRecv);
+		recv_len += bytesRecv;
+	}
+	arr_full.insert(arr_full.end(), reinterpret_cast<DTYPE*>(arr_recv_tmp),
+		reinterpret_cast<DTYPE*>(arr_recv_tmp) + (SORT_DATANUM + 2));
+	//cout << arr_full.size() << endl;
+	delete[] arr_recv_tmp;
+	client_max = arr_full.back();
+	arr_full.pop_back();
+	client_sum = arr_full.back();
+	arr_full.pop_back();
+
+
+	return 0;
+}
 void SortArray_bicomp(vector<DTYPE>& arr_full)
 {
 	cout << "***********************************************" << endl;

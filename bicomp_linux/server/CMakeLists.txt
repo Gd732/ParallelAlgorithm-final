@@ -9,6 +9,7 @@ include_directories(./incl)
 set(SOURCES
     src/server.cpp
     src/server_configs.cpp
+    src/utils_max_sum.cpp
     src/utils_ms_v1.cpp
 )
 

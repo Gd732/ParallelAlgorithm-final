@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server
+CMAKE_SOURCE_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build
+CMAKE_BINARY_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -177,6 +177,33 @@ src/server_configs.cpp.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server_configs.cpp.s
 .PHONY : src/server_configs.cpp.s
 
+src/utils_max_sum.o: src/utils_max_sum.cpp.o
+
+.PHONY : src/utils_max_sum.o
+
+# target to build an object file
+src/utils_max_sum.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/utils_max_sum.cpp.o
+.PHONY : src/utils_max_sum.cpp.o
+
+src/utils_max_sum.i: src/utils_max_sum.cpp.i
+
+.PHONY : src/utils_max_sum.i
+
+# target to preprocess a source file
+src/utils_max_sum.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/utils_max_sum.cpp.i
+.PHONY : src/utils_max_sum.cpp.i
+
+src/utils_max_sum.s: src/utils_max_sum.cpp.s
+
+.PHONY : src/utils_max_sum.s
+
+# target to generate assembly for a file
+src/utils_max_sum.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/utils_max_sum.cpp.s
+.PHONY : src/utils_max_sum.cpp.s
+
 src/utils_ms_v1.o: src/utils_ms_v1.cpp.o
 
 .PHONY : src/utils_ms_v1.o
@@ -219,6 +246,9 @@ help:
 	@echo "... src/server_configs.o"
 	@echo "... src/server_configs.i"
 	@echo "... src/server_configs.s"
+	@echo "... src/utils_max_sum.o"
+	@echo "... src/utils_max_sum.i"
+	@echo "... src/utils_max_sum.s"
 	@echo "... src/utils_ms_v1.o"
 	@echo "... src/utils_ms_v1.i"
 	@echo "... src/utils_ms_v1.s"

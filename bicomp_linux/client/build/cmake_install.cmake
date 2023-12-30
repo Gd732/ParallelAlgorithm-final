@@ -1,4 +1,4 @@
-# Install script for directory: /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client
+# Install script for directory: /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

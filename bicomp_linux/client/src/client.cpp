@@ -12,7 +12,7 @@
 #include <sys/time.h>
 #include "client.h"
 #include "mergesort_v1.h"
-
+#include "max_sum.h"
 using namespace std;
 
 int main()
@@ -32,9 +32,10 @@ int main()
 	// sorting array
 	cout << "Client: start to sort" << endl;
 	test_parallel(arr_recv, SORT_DATANUM); 
-
+	DTYPE client_max = arrayMaxParallel(arr_recv, SORT_DATANUM);
+	DTYPE client_sum = arraySumParallel(arr_recv, SORT_DATANUM);
 	// send array back
-	SendArrayBackToServer_bicomp(Connection, arr_recv);
+	SendArrayBackToServer_bicomp(Connection, arr_recv, client_max, client_sum);
 
 	// check remain array
 	CheckRemainArray_bicomp(arr_recv);

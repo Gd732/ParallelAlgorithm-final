@@ -8,9 +8,13 @@
 
 ../incl/client.h
 
+../incl/max_sum.h
+vector
+-
+
 ../incl/mergesort_v1.h
 
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client.cpp
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client.cpp
 netinet/in.h
 -
 unistd.h
@@ -24,11 +28,13 @@ vector
 sys/time.h
 -
 client.h
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client.h
 mergesort_v1.h
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/mergesort_v1.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/mergesort_v1.h
+max_sum.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/max_sum.h
 
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client_configs.cpp
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client_configs.cpp
 iostream
 -
 vector
@@ -46,19 +52,7 @@ arpa/inet.h
 sys/time.h
 -
 client.h
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client.h
 mergesort_v1.h
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/mergesort_v1.h
-
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/utils_ms_v1.cpp
-iostream
--
-random
--
-iomanip
--
-sys/time.h
--
-mergesort_v1.h
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/mergesort_v1.h
+/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/mergesort_v1.h
 

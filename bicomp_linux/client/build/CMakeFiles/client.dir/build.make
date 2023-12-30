@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client
+CMAKE_SOURCE_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build
+CMAKE_BINARY_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/client.dir/depend.make
@@ -59,47 +59,61 @@ include CMakeFiles/client.dir/flags.make
 
 CMakeFiles/client.dir/src/client.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/src/client.cpp.o: ../src/client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/src/client.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/client.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/src/client.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/client.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client.cpp
 
 CMakeFiles/client.dir/src/client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/client.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client.cpp > CMakeFiles/client.dir/src/client.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client.cpp > CMakeFiles/client.dir/src/client.cpp.i
 
 CMakeFiles/client.dir/src/client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/client.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client.cpp -o CMakeFiles/client.dir/src/client.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client.cpp -o CMakeFiles/client.dir/src/client.cpp.s
 
 CMakeFiles/client.dir/src/client_configs.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/src/client_configs.cpp.o: ../src/client_configs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/src/client_configs.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/client_configs.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client_configs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/src/client_configs.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/client_configs.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client_configs.cpp
 
 CMakeFiles/client.dir/src/client_configs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/client_configs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client_configs.cpp > CMakeFiles/client.dir/src/client_configs.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client_configs.cpp > CMakeFiles/client.dir/src/client_configs.cpp.i
 
 CMakeFiles/client.dir/src/client_configs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/client_configs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/client_configs.cpp -o CMakeFiles/client.dir/src/client_configs.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client_configs.cpp -o CMakeFiles/client.dir/src/client_configs.cpp.s
+
+CMakeFiles/client.dir/src/utils_max_sum.cpp.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/src/utils_max_sum.cpp.o: ../src/utils_max_sum.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/src/utils_max_sum.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/utils_max_sum.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_max_sum.cpp
+
+CMakeFiles/client.dir/src/utils_max_sum.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/utils_max_sum.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_max_sum.cpp > CMakeFiles/client.dir/src/utils_max_sum.cpp.i
+
+CMakeFiles/client.dir/src/utils_max_sum.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/utils_max_sum.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_max_sum.cpp -o CMakeFiles/client.dir/src/utils_max_sum.cpp.s
 
 CMakeFiles/client.dir/src/utils_ms_v1.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/src/utils_ms_v1.cpp.o: ../src/utils_ms_v1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/src/utils_ms_v1.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/utils_ms_v1.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/utils_ms_v1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/client.dir/src/utils_ms_v1.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/client.dir/src/utils_ms_v1.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_ms_v1.cpp
 
 CMakeFiles/client.dir/src/utils_ms_v1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/utils_ms_v1.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/utils_ms_v1.cpp > CMakeFiles/client.dir/src/utils_ms_v1.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_ms_v1.cpp > CMakeFiles/client.dir/src/utils_ms_v1.cpp.i
 
 CMakeFiles/client.dir/src/utils_ms_v1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/utils_ms_v1.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/src/utils_ms_v1.cpp -o CMakeFiles/client.dir/src/utils_ms_v1.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_ms_v1.cpp -o CMakeFiles/client.dir/src/utils_ms_v1.cpp.s
 
 # Object files for target client
 client_OBJECTS = \
 "CMakeFiles/client.dir/src/client.cpp.o" \
 "CMakeFiles/client.dir/src/client_configs.cpp.o" \
+"CMakeFiles/client.dir/src/utils_max_sum.cpp.o" \
 "CMakeFiles/client.dir/src/utils_ms_v1.cpp.o"
 
 # External object files for target client
@@ -107,10 +121,11 @@ client_EXTERNAL_OBJECTS =
 
 client: CMakeFiles/client.dir/src/client.cpp.o
 client: CMakeFiles/client.dir/src/client_configs.cpp.o
+client: CMakeFiles/client.dir/src/utils_max_sum.cpp.o
 client: CMakeFiles/client.dir/src/utils_ms_v1.cpp.o
 client: CMakeFiles/client.dir/build.make
 client: CMakeFiles/client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +138,6 @@ CMakeFiles/client.dir/clean:
 .PHONY : CMakeFiles/client.dir/clean
 
 CMakeFiles/client.dir/depend:
-	cd /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/client/build/CMakeFiles/client.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles/client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/client.dir/depend
 

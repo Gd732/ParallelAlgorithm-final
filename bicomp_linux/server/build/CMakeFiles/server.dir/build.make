@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server
+CMAKE_SOURCE_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build
+CMAKE_BINARY_DIR = /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/server.dir/depend.make
@@ -59,47 +59,61 @@ include CMakeFiles/server.dir/flags.make
 
 CMakeFiles/server.dir/src/server.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/src/server.cpp.o: ../src/server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/server.dir/src/server.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/src/server.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/server.dir/src/server.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/src/server.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server.cpp
 
 CMakeFiles/server.dir/src/server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server.cpp > CMakeFiles/server.dir/src/server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server.cpp > CMakeFiles/server.dir/src/server.cpp.i
 
 CMakeFiles/server.dir/src/server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server.cpp -o CMakeFiles/server.dir/src/server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server.cpp -o CMakeFiles/server.dir/src/server.cpp.s
 
 CMakeFiles/server.dir/src/server_configs.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/src/server_configs.cpp.o: ../src/server_configs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/server.dir/src/server_configs.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/src/server_configs.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server_configs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/server.dir/src/server_configs.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/src/server_configs.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server_configs.cpp
 
 CMakeFiles/server.dir/src/server_configs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/server_configs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server_configs.cpp > CMakeFiles/server.dir/src/server_configs.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server_configs.cpp > CMakeFiles/server.dir/src/server_configs.cpp.i
 
 CMakeFiles/server.dir/src/server_configs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/server_configs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/server_configs.cpp -o CMakeFiles/server.dir/src/server_configs.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/server_configs.cpp -o CMakeFiles/server.dir/src/server_configs.cpp.s
+
+CMakeFiles/server.dir/src/utils_max_sum.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/utils_max_sum.cpp.o: ../src/utils_max_sum.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/server.dir/src/utils_max_sum.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/src/utils_max_sum.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/utils_max_sum.cpp
+
+CMakeFiles/server.dir/src/utils_max_sum.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/utils_max_sum.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/utils_max_sum.cpp > CMakeFiles/server.dir/src/utils_max_sum.cpp.i
+
+CMakeFiles/server.dir/src/utils_max_sum.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/utils_max_sum.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/utils_max_sum.cpp -o CMakeFiles/server.dir/src/utils_max_sum.cpp.s
 
 CMakeFiles/server.dir/src/utils_ms_v1.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/src/utils_ms_v1.cpp.o: ../src/utils_ms_v1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/server.dir/src/utils_ms_v1.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/src/utils_ms_v1.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/utils_ms_v1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/server.dir/src/utils_ms_v1.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/src/utils_ms_v1.cpp.o -c /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/utils_ms_v1.cpp
 
 CMakeFiles/server.dir/src/utils_ms_v1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/utils_ms_v1.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/utils_ms_v1.cpp > CMakeFiles/server.dir/src/utils_ms_v1.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/utils_ms_v1.cpp > CMakeFiles/server.dir/src/utils_ms_v1.cpp.i
 
 CMakeFiles/server.dir/src/utils_ms_v1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/utils_ms_v1.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/src/utils_ms_v1.cpp -o CMakeFiles/server.dir/src/utils_ms_v1.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/src/utils_ms_v1.cpp -o CMakeFiles/server.dir/src/utils_ms_v1.cpp.s
 
 # Object files for target server
 server_OBJECTS = \
 "CMakeFiles/server.dir/src/server.cpp.o" \
 "CMakeFiles/server.dir/src/server_configs.cpp.o" \
+"CMakeFiles/server.dir/src/utils_max_sum.cpp.o" \
 "CMakeFiles/server.dir/src/utils_ms_v1.cpp.o"
 
 # External object files for target server
@@ -107,10 +121,11 @@ server_EXTERNAL_OBJECTS =
 
 server: CMakeFiles/server.dir/src/server.cpp.o
 server: CMakeFiles/server.dir/src/server_configs.cpp.o
+server: CMakeFiles/server.dir/src/utils_max_sum.cpp.o
 server: CMakeFiles/server.dir/src/utils_ms_v1.cpp.o
 server: CMakeFiles/server.dir/build.make
 server: CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +138,6 @@ CMakeFiles/server.dir/clean:
 .PHONY : CMakeFiles/server.dir/clean
 
 CMakeFiles/server.dir/depend:
-	cd /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp/server/build/CMakeFiles/server.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build /home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/server/build/CMakeFiles/server.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/server.dir/depend
 

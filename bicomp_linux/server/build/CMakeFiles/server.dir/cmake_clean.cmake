@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/server.dir/src/server.cpp.o"
   "CMakeFiles/server.dir/src/server_configs.cpp.o"
+  "CMakeFiles/server.dir/src/utils_max_sum.cpp.o"
   "CMakeFiles/server.dir/src/utils_ms_v1.cpp.o"
   "server"
   "server.pdb"

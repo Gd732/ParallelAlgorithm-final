@@ -9,6 +9,8 @@ CMakeFiles/server.dir/src/server_configs.cpp.o: ../incl/mergesort_v1.h
 CMakeFiles/server.dir/src/server_configs.cpp.o: ../incl/server.h
 CMakeFiles/server.dir/src/server_configs.cpp.o: ../src/server_configs.cpp
 
+CMakeFiles/server.dir/src/utils_max_sum.cpp.o: ../src/utils_max_sum.cpp
+
 CMakeFiles/server.dir/src/utils_ms_v1.cpp.o: ../incl/mergesort_v1.h
 CMakeFiles/server.dir/src/utils_ms_v1.cpp.o: ../src/utils_ms_v1.cpp
 
