@@ -11,11 +11,13 @@
 #include <chrono>
 #include "server.h"
 #include "mergesort_v1.h"
+#include "max_sum.h"
 
 using namespace std;
 
 int main()
 {
+	
 	// init the server
 	SOCKET Connection = server_init();
 	vector<DTYPE> arr_full(DATANUM);
@@ -31,11 +33,17 @@ int main()
 
 	// sort the remaining array
 	SortArray_bicomp(arr_full);
+	DTYPE server_max = arrayMaxParallel(arr_full, SORT_DATANUM);
+	DTYPE server_sum = arraySumKahanParallel(arr_full, SORT_DATANUM);
 
 	// start to receive back
 	RecvArrayBackFromClient_bicomp(Connection, arr_full, start, client_max, client_sum);
-	cout << "client max = " << client_max << endl;
-	cout << "client sum = " << client_sum << endl;
+
+
+	DTYPE max = (client_max > server_max) ? client_max : server_max;
+	DTYPE sum = client_sum + server_sum;
+	cout << "max = " << max << endl;
+	cout << "sum = " << sum << endl;
 
 	// merge the array
 	MergeArray_Check_bicomp(arr_full);

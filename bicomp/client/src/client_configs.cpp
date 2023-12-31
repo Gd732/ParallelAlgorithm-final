@@ -166,9 +166,6 @@ int SendArrayBackToServer_bicomp(SOCKET& Connection, std::vector<DTYPE>& arr_rec
 		}
 	}
 
-	//const char end_send = CLIENT_END_SENDING;
-	//cout << "End Sending Array" << endl;
-	//send(Connection, &end_send, 1, NULL);
 	shutdown(Connection, SD_SEND);
 
 	arr_recv.erase(arr_recv.begin(), arr_recv.end());
