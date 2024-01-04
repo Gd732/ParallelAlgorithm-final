@@ -3,11 +3,11 @@
 #include <iomanip>
 #include <time.h>
 #include <windows.h>
-#include "mergesort_v1.h" 
+#include "mergesort_v1.h"
 using namespace std;
 
 timeval start, end;
-
+ 
 float GetRandomFloat()
 {
     float min = 0.0;
@@ -19,13 +19,18 @@ float GetRandomFloat()
 void vector_init(vector<DTYPE>& arr, size_t size)
 {
     cout << "Initiating the Array, Please wait." << endl;
-    for (size_t i = 0; i < size; ++i)
+    // for (size_t i = 0; i < size; ++i)
+    // {
+    //     arr[i] = GetRandomFloat();
+    // }
+    for (size_t i = 0; i < DATANUM; i++)//数据初始化
     {
-        arr[i] = GetRandomFloat();
+	    arr[i] = float(i+1);
     }
     cout << "Initiation Finished." << endl;
     cout << "***********************************************" << endl;
 }
+
 
 bool checkSorted(vector<DTYPE>& arr, size_t size) 
 {
@@ -167,9 +172,7 @@ void insertSort(vector<DTYPE>& arr, size_t low, size_t high)
 void compareSort()
 {
     cout << "Array size: " << DATANUM << endl;
-    //vector<DTYPE> narr(DATANUM);
     vector<DTYPE> arr(DATANUM);
-    //vector<DTYPE> tmp(DATANUM);
 
 
     vector_init(arr, DATANUM);
