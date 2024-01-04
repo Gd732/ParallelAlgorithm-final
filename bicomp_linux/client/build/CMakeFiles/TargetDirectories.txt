@@ -1,3 +1,3 @@
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles/rebuild_cache.dir
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles/edit_cache.dir
-/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles/client.dir
+/home/site/workplace/bicomp_linux/client/build/CMakeFiles/client.dir
+/home/site/workplace/bicomp_linux/client/build/CMakeFiles/edit_cache.dir
+/home/site/workplace/bicomp_linux/client/build/CMakeFiles/rebuild_cache.dir

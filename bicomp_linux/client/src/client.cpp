@@ -19,7 +19,6 @@ int main()
 {
 	int Connection = client_init();
 	
-
 	// LARGE_INTEGER start;
 	// QueryPerformanceCounter(&start);
 
@@ -33,7 +32,7 @@ int main()
 	cout << "Client: start to sort" << endl;
 	test_parallel(arr_recv, SORT_DATANUM); 
 	DTYPE client_max = arrayMaxParallel(arr_recv, SORT_DATANUM);
-	DTYPE client_sum = arraySumParallel(arr_recv, SORT_DATANUM);
+	DTYPE client_sum = arraySumKahanParallel(arr_recv, SORT_DATANUM);
 	// send array back
 	SendArrayBackToServer_bicomp(Connection, arr_recv, client_max, client_sum);
 

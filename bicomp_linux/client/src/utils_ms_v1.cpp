@@ -1,13 +1,12 @@
 #include <iostream>
 #include <random>
 #include <iomanip>
-#include <time.h>
-#include <windows.h>
-#include "mergesort_v1.h"
+#include <sys/time.h>
+// #include <windows.h>
+#include "mergesort_v1.h" 
 using namespace std;
 
-timeval start, end;
- 
+
 float GetRandomFloat()
 {
     float min = 0.0;
@@ -25,12 +24,11 @@ void vector_init(vector<DTYPE>& arr, size_t size)
     // }
     for (size_t i = 0; i < DATANUM; i++)//数据初始化
     {
-	    arr[i] = float(i+1);
+        arr[i] = float(i + 1);
     }
     cout << "Initiation Finished." << endl;
     cout << "***********************************************" << endl;
 }
-
 
 bool checkSorted(vector<DTYPE>& arr, size_t size) 
 {
@@ -87,12 +85,12 @@ void non_parallel_merge_sort(vector<DTYPE>& arr, /*vector<DTYPE>& tmp,*/ size_t 
     }
 
     size_t mid = (low + high) / 2;
-    non_parallel_merge_sort(arr, /*tmp,*/ low, mid);
-    non_parallel_merge_sort(arr, /*tmp,*/ mid + 1, high);
-    merge(arr, /*tmp,*/ low, mid, high);
+    non_parallel_merge_sort(arr, low, mid);
+    non_parallel_merge_sort(arr, mid + 1, high);
+    merge(arr, low, mid, high);
 }
 
-void parallel_merge_sort(vector<DTYPE>& arr, /*vector<DTYPE>& tmp,*/ size_t low, size_t high, size_t level)
+void parallel_merge_sort(vector<DTYPE>& arr, size_t low, size_t high, size_t level)
 {
     if (high - low <= 10) {
         insertSort(arr, low, high);
@@ -121,36 +119,38 @@ void parallel_merge_sort(vector<DTYPE>& arr, /*vector<DTYPE>& tmp,*/ size_t low,
 }
 
 
-size_t test_non_parallel(vector<DTYPE>&arr, /*vector<DTYPE>&tmp,*/ size_t size)
+double test_non_parallel(vector<DTYPE>&arr, size_t size)
 {
-    LARGE_INTEGER start, end;
-    QueryPerformanceCounter(&start);
+    // LARGE_INTEGER start, end;
+    // QueryPerformanceCounter(&start);
+    timeval start, end;
+    gettimeofday(&start, NULL);
     non_parallel_merge_sort(arr, /*tmp,*/ 0, size - 1);
-    QueryPerformanceCounter(&end);
-    size_t time = end.QuadPart - start.QuadPart;
-    cout << "Time Consumed(non parallel):" << time << endl;
+    gettimeofday(&end, NULL);
+    double dura = TIME_DIFF(start, end);
+    cout << "Time Consumed(non parallel):" << dura << endl;
 
     bool is_nonparallel_sorted = checkSorted(arr, size);
     cout << (is_nonparallel_sorted ? "Array is sorted correctly after non parallel sorting"
         : "Array is not sorted correctly after non parallel sorting") << endl;
 
-    return time;
+    return dura;
 }
 
-size_t test_parallel(vector<DTYPE>& arr, /*vector<DTYPE>& tmp,*/ size_t size)
+double test_parallel(vector<DTYPE>& arr, size_t size)
 {
-    LARGE_INTEGER start, end;
-    QueryPerformanceCounter(&start);//start  
-    parallel_merge_sort(arr, /*tmp,*/ 0, size - 1, 0);
-    QueryPerformanceCounter(&end);//end
-    size_t time = end.QuadPart - start.QuadPart;
-    cout << "Time Consumed(parallel):" << time << endl;
+    timeval start, end;
+    gettimeofday(&start, NULL);
+    parallel_merge_sort(arr, 0, size - 1, 0);
+    gettimeofday(&end, NULL);
+    double dura = TIME_DIFF(start, end);
+    cout << "Time Consumed(parallel):" << dura << endl;
 
     bool is_parallel_sorted = checkSorted(arr, size);
     cout << (is_parallel_sorted ? "Array is sorted correctly after parallel sorting"
         : "Array is not sorted correctly after parallel sorting") << endl;
 
-    return time;
+    return dura;
 }
 
 
@@ -172,7 +172,9 @@ void insertSort(vector<DTYPE>& arr, size_t low, size_t high)
 void compareSort()
 {
     cout << "Array size: " << DATANUM << endl;
+    //vector<DTYPE> narr(DATANUM);
     vector<DTYPE> arr(DATANUM);
+    //vector<DTYPE> tmp(DATANUM);
 
 
     vector_init(arr, DATANUM);

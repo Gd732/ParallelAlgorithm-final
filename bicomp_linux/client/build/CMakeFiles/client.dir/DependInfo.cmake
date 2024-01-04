@@ -1,19 +1,17 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles/client.dir/src/client.cpp.o"
-  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/client_configs.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles/client.dir/src/client_configs.cpp.o"
-  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_max_sum.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles/client.dir/src/utils_max_sum.cpp.o"
-  "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/src/utils_ms_v1.cpp" "/home/wong/WorkSpace/ParallelAlgorithm-final/bicomp_linux/client/build/CMakeFiles/client.dir/src/utils_ms_v1.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  ".././incl"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/site/workplace/bicomp_linux/client/src/client.cpp" "CMakeFiles/client.dir/src/client.cpp.o" "gcc" "CMakeFiles/client.dir/src/client.cpp.o.d"
+  "/home/site/workplace/bicomp_linux/client/src/client_configs.cpp" "CMakeFiles/client.dir/src/client_configs.cpp.o" "gcc" "CMakeFiles/client.dir/src/client_configs.cpp.o.d"
+  "/home/site/workplace/bicomp_linux/client/src/utils_max_sum.cpp" "CMakeFiles/client.dir/src/utils_max_sum.cpp.o" "gcc" "CMakeFiles/client.dir/src/utils_max_sum.cpp.o.d"
+  "/home/site/workplace/bicomp_linux/client/src/utils_ms_v1.cpp" "CMakeFiles/client.dir/src/utils_ms_v1.cpp.o" "gcc" "CMakeFiles/client.dir/src/utils_ms_v1.cpp.o.d"
   )
 
 # Targets to which this target links.
