@@ -20,7 +20,7 @@ int main()
 	cout << "Start to sort" << endl;
 	test_non_parallel(arr_full, DATANUM);
 	DTYPE client_max = arrayMaxSerial(arr_full, DATANUM);
-	DTYPE client_sum = arraySumSerial(arr_full, DATANUM);
+	DTYPE client_sum = arrayKahanSumSerial(arr_full, DATANUM);
 
 	// get the final time cost
 	GetFinalTimeCost(start, true);
