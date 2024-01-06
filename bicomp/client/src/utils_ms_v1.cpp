@@ -100,7 +100,7 @@ void parallel_merge_sort(vector<DTYPE>& arr, size_t low, size_t high)
 {
     size_t itval = high - low;
     if (itval < 20) {
-        if (itval == 7)
+        if (itval == 3)
         {
             innerSortSIMD(arr, low, high);
             return;
@@ -175,58 +175,35 @@ void insertSort(vector<DTYPE>& arr, size_t low, size_t high)
 }
 
 
-inline __m256 _mm256_swap(__m256 input)
-{
-    return _mm256_permute2f128_ps(input, input, _MM_SHUFFLE(0, 0, 1, 1));
-}
-inline __m256 simd_sort_1V(__m256 input)
+inline __m128 simd_sort_1V(__m128 input)
 {
     {
-        __m256 perm_neigh = _mm256_permute_ps(input, _MM_SHUFFLE(2, 3, 0, 1));
-        __m256 perm_neigh_min = _mm256_min_ps(input, perm_neigh);
-        __m256 perm_neigh_max = _mm256_max_ps(input, perm_neigh);
-        input = _mm256_blend_ps(perm_neigh_min, perm_neigh_max, 0xAA);
+        __m128 perm_neigh = _mm_shuffle_ps(input, input, _MM_SHUFFLE(2, 3, 0, 1));
+        __m128 perm_neigh_min = _mm_min_ps(input, perm_neigh);
+        __m128 perm_neigh_max = _mm_max_ps(input, perm_neigh);
+        input = _mm_shuffle_ps(perm_neigh_min, perm_neigh_max, _MM_SHUFFLE(2, 0, 2, 0));
     }
     {
-        __m256 perm_neigh = _mm256_permute_ps(input, _MM_SHUFFLE(0, 1, 2, 3));
-        __m256 perm_neigh_min = _mm256_min_ps(input, perm_neigh);
-        __m256 perm_neigh_max = _mm256_max_ps(input, perm_neigh);
-        input = _mm256_blend_ps(perm_neigh_min, perm_neigh_max, 0xCC);
+        __m128 perm_neigh = _mm_shuffle_ps(input, input, _MM_SHUFFLE(0, 1, 2, 3));
+        __m128 perm_neigh_min = _mm_min_ps(input, perm_neigh);
+        __m128 perm_neigh_max = _mm_max_ps(input, perm_neigh);
+        input = _mm_shuffle_ps(perm_neigh_min, perm_neigh_max, _MM_SHUFFLE(1, 0, 3, 2));
     }
     {
-        __m256 perm_neigh = _mm256_permute_ps(input, _MM_SHUFFLE(2, 3, 0, 1));
-        __m256 perm_neigh_min = _mm256_min_ps(input, perm_neigh);
-        __m256 perm_neigh_max = _mm256_max_ps(input, perm_neigh);
-        input = _mm256_blend_ps(perm_neigh_min, perm_neigh_max, 0xAA);
+        __m128 perm_neigh = _mm_shuffle_ps(input, input, _MM_SHUFFLE(2, 3, 0, 1));
+        __m128 perm_neigh_min = _mm_min_ps(input, perm_neigh);
+        __m128 perm_neigh_max = _mm_max_ps(input, perm_neigh);
+        input = _mm_shuffle_ps(perm_neigh_min, perm_neigh_max, _MM_SHUFFLE(2, 0, 2, 0));
     }
-    {
-        __m256 swap = _mm256_swap(input);
-        __m256 perm_neigh = _mm256_permute_ps(swap, _MM_SHUFFLE(0, 1, 2, 3));
-        __m256 perm_neigh_min = _mm256_min_ps(input, perm_neigh);
-        __m256 perm_neigh_max = _mm256_max_ps(input, perm_neigh);
-        input = _mm256_blend_ps(perm_neigh_min, perm_neigh_max, 0xF0);
-    }
-    {
-        __m256 perm_neigh = _mm256_permute_ps(input, _MM_SHUFFLE(1, 0, 3, 2));
-        __m256 perm_neigh_min = _mm256_min_ps(input, perm_neigh);
-        __m256 perm_neigh_max = _mm256_max_ps(input, perm_neigh);
-        input = _mm256_blend_ps(perm_neigh_min, perm_neigh_max, 0xCC);
-    }
-    {
-        __m256 perm_neigh = _mm256_permute_ps(input, _MM_SHUFFLE(2, 3, 0, 1));
-        __m256 perm_neigh_min = _mm256_min_ps(input, perm_neigh);
-        __m256 perm_neigh_max = _mm256_max_ps(input, perm_neigh);
-        input = _mm256_blend_ps(perm_neigh_min, perm_neigh_max, 0xAA);
-    }
+
     return input;
 }
 
 void innerSortSIMD(vector<DTYPE>& arr, size_t low, size_t high)
 {
-
-    __m256 floatVector = _mm256_loadu_ps(&arr[low]);
+    __m128 floatVector = _mm_loadu_ps(&arr[low]);
     floatVector = simd_sort_1V(floatVector);
-    _mm256_storeu_ps(&arr[low], floatVector);
+    _mm_storeu_ps(&arr[low], floatVector);
     //for (float value : getvector) {
     //    std::cout << value << " ";
     //}    

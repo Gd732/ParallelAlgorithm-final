@@ -3,7 +3,7 @@
 #include <immintrin.h> 
 
 #define MAX_THREADS 128
-#define SUBDATANUM 100000
+#define SUBDATANUM 10000
 #define DATANUM (MAX_THREADS*SUBDATANUM)
 #define NUM_THREADS 16
 
@@ -27,7 +27,7 @@ size_t test_parallel(std::vector<DTYPE>& arr, size_t size);
 
 void insertSort(std::vector<DTYPE>& arr, size_t low, size_t high);
 
-__m256 simd_sort_1V(__m256 input);
+inline __m128 simd_sort_1V(__m128 input);
 void innerSortSIMD(std::vector<DTYPE>& arr, size_t low, size_t high);
 
 void compareSort();

@@ -161,7 +161,6 @@ DTYPE arraySumKahanSerialSIMD(std::vector<DTYPE>& arr, size_t len)
         arr_vector = _mm256_log_ps(_mm256_sqrt_ps(arr_vector));
         __m256 y_vector = _mm256_sub_ps(arr_vector, compensation_vector);
         __m256 t_vector = _mm256_add_ps(sum_vector, y_vector);
-        __m256 diff_vector = _mm256_sub_ps(t_vector, sum_vector);
         compensation_vector = _mm256_sub_ps(_mm256_sub_ps(t_vector, sum_vector), y_vector);
         sum_vector = t_vector;
     }
@@ -188,7 +187,6 @@ DTYPE arraySumKahanParallelSIMD(std::vector<DTYPE>& arr, size_t len)
         arr_vector = _mm256_log_ps(_mm256_sqrt_ps(arr_vector));
         __m256 y_vector = _mm256_sub_ps(arr_vector, compensation_vector);
         __m256 t_vector = _mm256_add_ps(sum_vector, y_vector);
-        __m256 diff_vector = _mm256_sub_ps(t_vector, sum_vector);
         compensation_vector = _mm256_sub_ps(_mm256_sub_ps(t_vector, sum_vector), y_vector);
         sum_vector = t_vector;
     }
